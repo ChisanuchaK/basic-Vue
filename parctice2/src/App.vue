@@ -15,7 +15,7 @@ import { ref } from 'vue';
 
   // filter
   let filterNotes =ref("")
-
+       
 </script>
  
 <template>
@@ -28,7 +28,7 @@ import { ref } from 'vue';
        </div>
        <div class="card" style="width: 50rem;">
          <div>
-              <dev class="head" v-for="(submitNote,  index) in submitNotes" :key="index" v-show="submitNote.includes(filterNotes)" >
+              <dev class="head" v-for="(submitNote,  index) in submitNotes" :key="index" v-show="submitNote.toLowerCase().includes(filterNotes)" >
                   <p>
                     {{index+1}}: {{submitNote}}
                   </p>
