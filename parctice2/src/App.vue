@@ -1,7 +1,8 @@
 <script setup>
-import { ref } from "@vue/reactivity";
+import { ref } from 'vue';
 // add note
   let submitNotes = ref([])
+  console.log(submitNotes.value)
   let msgNote = ref("")
   let addNote = ()=> {
     if(msgNote.value.length != 0){
@@ -13,9 +14,8 @@ import { ref } from "@vue/reactivity";
   }
 
   // filter
+  let filterNotes =ref("")
 
-  let filterNotes = ref("")
-      let filter = ()=> submitNotes.value.filter(()=>{for(let i of submitNotes.value){ filterNotes.value = submitNotes.value[i]}})
 </script>
  
 <template>
@@ -28,13 +28,12 @@ import { ref } from "@vue/reactivity";
        </div>
        <div class="card" style="width: 50rem;">
          <div>
-              <p class="head" v-for="(submitNote, index) in submitNotes" :key="index">
-                    {{index+1}} :  {{submitNote}}
-              </p> 
+              <dev class="head" v-for="(submitNote,  index) in submitNotes" :key="index" v-show="submitNote.includes(filterNotes)" >
+                  <p>
+                    {{index+1}}: {{submitNote}}
+                  </p>
+              </dev> 
 
-            <p v-for="(f , index) in filter"  :key="index">
-              {{index}} : {{f}}
-            </p>
      
          </div>
        </div>
@@ -42,6 +41,7 @@ import { ref } from "@vue/reactivity";
 </template>
  
 <style>
+
   h1{
     text-align: center;
     margin-top: 30%;
