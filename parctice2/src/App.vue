@@ -27,8 +27,8 @@ import { ref } from 'vue';
       submitNotes.value.splice( start , number)
   }
 
-  
-</script>
+    document.title = "MY Note 🖋️"
+    </script>
  
 <template>
   <div>
@@ -55,7 +55,7 @@ import { ref } from 'vue';
 </template>
  
 <style>
-
+      
   h1{
     text-align: center;
     margin-top: 30%;
