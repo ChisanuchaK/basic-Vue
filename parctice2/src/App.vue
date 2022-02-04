@@ -32,7 +32,7 @@ import { ref } from 'vue';
  
 <template>
   <div>
-    <h1>MY NOTE 🖋️</h1>--
+    <h1>MY NOTE 🖋️</h1>
      <div class="card" style="width: 22rem;">
       New Note :<input v-model="msgNote" type="text" placeholder="Input my note" @keydown="enterNote"> <br>
        <button @click="addNote">Add Note</button>
@@ -81,5 +81,9 @@ import { ref } from 'vue';
     float: right;
     margin-top: -35px;
    
+ }
+ .head{
+   color: midnightblue;
+   font-weight: bold ;
  }
 </style>
