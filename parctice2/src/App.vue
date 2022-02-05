@@ -30,22 +30,22 @@ import { ref } from 'vue';
     document.title = "MY Note 🖋️"
     </script>
  
-<template>
-  <div>
-    <h1>MY NOTE 🖋️</h1>
-     <div class="card" style="width: 22rem;">
-      New Note :<input v-model="msgNote" type="text" placeholder="Input my note" @keydown="enterNote"> <br>
-       <button @click="addNote">Add Note</button>
+<template >
+  <div class=" max-width">
+    <h1 class="col-md-auto">MY NOTE 🖋️</h1>
+     <div class="card col-md-auto" style="width: 22rem;">
+      New Note :<input class="col-md-auto" v-model="msgNote" type="text" placeholder="Input my note" @keydown="enterNote"> <br>
+       <button class="col-md-auto" @click="addNote">Add Note</button>
 
-       Filter Note : <input type="text" placeholder="Filter Note" v-model="filterNotes">
+       Filter Note : <input class="col-md-auto" type="text" placeholder="Filter Note" v-model="filterNotes">
        </div>
-       <div class="card" style="width: 50rem;">
+       <div class="card col-md-auto" style="width: 50rem;">
          <div>
-              <dev class="head" v-for="(submitNote,  index) in submitNotes" :key="index" v-show="submitNote.toLowerCase().includes(filterNotes)" >
-                  <p>                                 
+              <dev class="head col-md-auto"  v-for="(submitNote,  index) in submitNotes" :key="index" v-show="submitNote.toLowerCase().includes(filterNotes)" >
+                  <p class="col-md-auto">                                 
                     {{index+1}}: {{submitNote}}
                   </p>
-                <img @click="removeNote( index ,1)" class="icon-bin" src="./assets/bin.png" alt="trash">
+                <img @click="removeNote( index ,1)" class="icon-bin col-md-auto" src="./assets/bin.png" alt="trash">
               </dev> 
 
      
