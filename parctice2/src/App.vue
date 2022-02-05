@@ -30,27 +30,30 @@ import { ref } from 'vue';
     document.title = "MY Note 🖋️"
     </script>
  
-<template >
-  <div class=" max-width">
-    <h1 class="col-md-auto">MY NOTE 🖋️</h1>
-     <div class="card col-md-auto" style="width: 22rem;">
-      New Note :<input class="col-md-auto" v-model="msgNote" type="text" placeholder="Input my note" @keydown="enterNote"> <br>
-       <button class="col-md-auto" @click="addNote">Add Note</button>
+<template>
+  <div class="container">
+    <div class="row">
+       <h1 class="col-sm-12  col-md-12 col-lg-12 col-xl-12 ">MY NOTE 🖋️</h1>
+     <div class="card col-sm-12  col-md-12 col-lg-12 col-xl-12" style="width: 22rem;">
+      New Note :<input class="col-sm-12  col-md-12 col-lg-12 col-xl-12" v-model="msgNote" type="text" placeholder="Input my note" @keydown="enterNote"> <br>
+       <button class="col-sm-12  col-md-12 col-lg-12 col-xl-12" @click="addNote">Add Note</button>
 
-       Filter Note : <input class="col-md-auto" type="text" placeholder="Filter Note" v-model="filterNotes">
+       Filter Note : <input class="col-sm-12  col-md-12 col-lg-12 col-xl-12" type="text" placeholder="Filter Note" v-model="filterNotes">
        </div>
-       <div class="card col-md-auto" style="width: 50rem;">
+       <div class="card col-sm-12  col-md-12 col-lg-12 col-xl-12" style="width: 50rem;">
          <div>
-              <dev class="head col-md-auto"  v-for="(submitNote,  index) in submitNotes" :key="index" v-show="submitNote.toLowerCase().includes(filterNotes)" >
-                  <p class="col-md-auto">                                 
+              <dev class="head col-sm-12  col-md-12 col-lg-12 col-xl-12" v-for="(submitNote,  index) in submitNotes" :key="index" v-show="submitNote.toLowerCase().includes(filterNotes)" >
+                  <p class="col-sm-12  col-md-12 col-lg-12 col-xl-12">                                 
                     {{index+1}}: {{submitNote}}
                   </p>
-                <img @click="removeNote( index ,1)" class="icon-bin col-md-auto" src="./assets/bin.png" alt="trash">
+                <img @click="removeNote( index ,1)" class="icon-bin col-sm-12  col-md-12 col-lg-12 col-xl-12" src="./assets/bin.png" alt="trash">
               </dev> 
 
      
          </div>
        </div>
+    </div>
+   
   </div>
 </template>
  
