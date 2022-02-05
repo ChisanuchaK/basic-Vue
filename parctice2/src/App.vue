@@ -26,29 +26,40 @@ import { ref } from 'vue';
    
       submitNotes.value.splice( start , number)
   }
-
+  //cookie
+  // remove All 
+      let removeAll = ()=> {
+        submitNotes.value.splice(0 , submitNotes.value.length)
+      }
+  //title
     document.title = "MY Note 🖋️"
     </script>
  
 <template>
   <div class="container">
-    <div class="row">
-       <h1 class="col-sm-12  col-md-12 col-lg-12 col-xl-12 ">MY NOTE 🖋️</h1>
-     <div class="card col-sm-12  col-md-12 col-lg-12 col-xl-12" style="width: 22rem;">
-      New Note :<input class="col-sm-12  col-md-12 col-lg-12 col-xl-12" v-model="msgNote" type="text" placeholder="Input my note" @keydown="enterNote"> <br>
-       <button class="col-sm-12  col-md-12 col-lg-12 col-xl-12" @click="addNote">Add Note</button>
+    <div>
+       <h1>MY NOTE 🖋️</h1>
+       <div class="row">
+         <div class="col">
 
-       Filter Note : <input class="col-sm-12  col-md-12 col-lg-12 col-xl-12" type="text" placeholder="Filter Note" v-model="filterNotes">
+         </div>
+      <div class="card col-8 ">
+        New Note :<input  v-model="msgNote" type="text" placeholder="Input my note" @keydown="enterNote"> <br>
+       <button  @click="addNote">Add Note</button>
+         Filter Note : <input  type="text" placeholder="Filter Note" v-model="filterNotes">
        </div>
-       <div class="card col-sm-12  col-md-12 col-lg-12 col-xl-12" style="width: 50rem;">
-         <div>
-              <dev class="head col-sm-12  col-md-12 col-lg-12 col-xl-12" v-for="(submitNote,  index) in submitNotes" :key="index" v-show="submitNote.toLowerCase().includes(filterNotes)" >
-                  <p class="col-sm-12  col-md-12 col-lg-12 col-xl-12">                                 
+       <div class="col">
+       </div>
+       </div>
+       <div class="card row d-flex justify-content-center">
+         <div >
+           <button class="remove-all"  @click="removeAll">Remove all lists</button>
+              <dev class="head " v-for="(submitNote,  index) in submitNotes" :key="index" v-show="submitNote.toLowerCase().includes(filterNotes)" >
+                  <p >                                 
                     {{index+1}}: {{submitNote}}
                   </p>
                 <img @click="removeNote( index ,1)" class="icon-bin " src="./assets/bin.png" alt="trash">
               </dev> 
-
      
          </div>
        </div>
@@ -58,7 +69,6 @@ import { ref } from 'vue';
 </template>
  
 <style>
-      
   h1{
     text-align: center;
     margin-top: 30%;
