@@ -46,7 +46,7 @@ import { ref } from 'vue';
                   <p class="col-sm-12  col-md-12 col-lg-12 col-xl-12">                                 
                     {{index+1}}: {{submitNote}}
                   </p>
-                <img @click="removeNote( index ,1)" class="icon-bin col-sm-12  col-md-12 col-lg-12 col-xl-12" src="./assets/bin.png" alt="trash">
+                <img @click="removeNote( index ,1)" class="icon-bin " src="./assets/bin.png" alt="trash">
               </dev> 
 
      
