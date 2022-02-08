@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { reactive, ref } from 'vue';
 // add note
   let submitNotes = ref([])
   console.log(submitNotes.value)
@@ -43,18 +43,18 @@ import { ref } from 'vue';
          <div class="col">
 
          </div>
-      <div class="card col-8 ">
-        New Note :<input  v-model="msgNote" type="text" placeholder="Input my note" @keydown="enterNote"> <br>
+      <div class="card col-8  ">
+        New Note :<input  v-model="msgNote" type="text" placeholder="Input my note" @keyup="enterNote"> <br>
        <button  @click="addNote">Add Note</button>
-         Filter Note : <input  type="text" placeholder="Filter Note" v-model="filterNotes">
+         Filter Note : <input  type="text" placeholder="Filter Note input lower case " v-model="filterNotes" v-show="submitNotes.length">
        </div>
        <div class="col">
        </div>
        </div>
        <div class="card row d-flex justify-content-center">
-         <div >
+         <div>
            <button class="remove-all"  @click="removeAll">Remove all lists</button>
-              <dev class="head " v-for="(submitNote,  index) in submitNotes" :key="index" v-show="submitNote.toLowerCase().includes(filterNotes)" >
+              <dev class="head " v-for="(submitNote,  index) in submitNotes" :key="index" v-show="submitNote.toLocaleLowerCase().includes(filterNotes)" >
                   <p >                                 
                     {{index+1}}: {{submitNote}}
                   </p>
